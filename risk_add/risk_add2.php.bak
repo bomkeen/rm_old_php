@@ -1,0 +1,332 @@
+<?
+session_start();
+?>
+<?
+$pro_risk_id = $_POST[pro_risk_id];
+$prorisk_detail_id = $_POST[prorisk_detail_id];
+$prorisk_sub_detail_id = $_POST[prorisk_sub_detail_id];
+$clinic_id = $_POST[clinic_id];
+$severity = $_POST[severity];
+$bg = "#E6E6FA";
+$bgm = "#BEBEBE";
+echo "<a href='risk_add?pro_risk_id=$pro_risk_id'>โปรแกรมหลัก</a>";
+echo "<<";
+echo "<a href='risk_add_main?pro_risk_id=$pro_risk_id&prorisk_detail_id=$prorisk_detail_id'>โปรแกรมย่อย</a>";
+echo "<<";
+echo "<a href='risk_add_sub?pro_risk_id=$pro_risk_id&prorisk_detail_id=$prorisk_detail_id&prorisk_sub_detail_id=$prorisk_sub_detail_id'>รายละเอียดโปรแกรม</a>";
+echo "<<";
+echo "<a href='risk_add_type?pro_risk_id=$pro_risk_id&prorisk_detail_id=$prorisk_detail_id&prorisk_sub_detail_id=$prorisk_sub_detail_id&clinic_id=$clinic_id'>ประเภทของความเสี่ยง</a>";
+echo "<<";
+echo "<a href='risk_add_level?pro_risk_id=$pro_risk_id&prorisk_detail_id=$prorisk_detail_id&prorisk_sub_detail_id=$prorisk_sub_detail_id&clinic_id=$clinic_id&severity=$severity'>ระดับความรุนแรง</a>";
+?>
+<HTML>
+    <HEAD><TITLE>โปรแกรมความเสี่ยง</TITLE></HEAD>
+
+    <BODY>
+        <script type="text/javascript" src="../js/calendarDateInput.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.validationEngine.js"></script>
+<link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css" />
+<center>        
+        <FORM name="risk_add" ACTION="risk_add3" METHOD="post" ENCTYPE="multipart/form-data">
+
+            <TABLE WIDTH="800" BORDER="0" CELLSPACING="1" CELLPADDING="0">
+                <TR bgcolor="<?= $bgm ?>"><td>เพิ่มความเสี่ยง</td><td></td></tr>
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>โปรแกรมความเสี่ยง</TD>
+                    <TD>
+                        <?
+                        include "../function/connect.php";
+                        mysql_query("set NAMES tis620");
+                        $sql = "select * from pro_risk  where pro_risk_id = $pro_risk_id";
+                        $result = mysql_db_query($dbname, $sql);
+                        while ($rs = mysql_fetch_array($result)) {
+                            $pro_risk_name = $rs[pro_risk_name];
+                            echo "$pro_risk_name";
+                        }
+                        ?>
+                    </TD>
+                </TR>
+
+				<TR bgcolor="<?= $bgm ?>"><td></td></tr>
+
+                <TR bgcolor="#FF33CC">
+                    <TD>ผู้รายงานความเสี่ยง</TD>
+                    <TD>
+                        <?
+                       echo "$nameweb";
+                       ?>
+                    </TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>หมวด</TD>
+                    <TD>
+                        <?
+                        include "../function/connect.php";
+                        mysql_query("set NAMES tis620");
+                        $sql = "select * from proriskdetail 
+         where id = '$prorisk_detail_id'";
+                        $result = mysql_db_query($dbname, $sql);
+                        while ($rs = mysql_fetch_array($result)) {
+                            $prorisk_detail_name = $rs[prorisk_detail_name];
+                            echo "$prorisk_detail_name";
+                        }
+                        ?>
+
+                    </TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>รายละเอียดหมวด</TD>
+                    <TD>
+
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from prorisk_sub_detail where  id='$prorisk_sub_detail_id'";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $prorisk_sub_detail_name = $rs[prorisk_sub_detail_name];
+   echo "$prorisk_sub_detail_name";
+}
+?>
+
+                    </TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ประเภทของความเสี่ยง</TD>
+                    <TD>
+
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from clinic_risk
+         where clinic_id='$clinic_id' 
+
+         ";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $clinic_name = $rs[clinic_name];
+    $clinic_id = $rs[clinic_id];
+    echo "$clinic_name";
+}
+?>
+
+                    </TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ระดับความรุนแรง</TD>
+                    <TD><?= $severity ?></TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <td>ตั้งแต่วันที่</td><td><script>DateInput('startdate', true, 'YYYY-MM-DD')</script></td>
+
+
+ <TR bgcolor="<?= $bg ?>">
+                    <TD>ลักษณะการเกิด</TD>
+                    <TD>
+                        <SELECT NAME="reborn_id" class="validate[required]">
+                            <OPTION VALUE="">เลือกลักษณะการเกิด</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from reborn";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $reborn_id = $rs[reborn_id];
+    $reborn_name = $rs[reborn_name];
+    echo "<OPTION VALUE='$reborn_id'>$reborn_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        </TD>
+                </TR>
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ระบบ</TD>
+                    <TD>
+                        <SELECT NAME="system_id" class="validate[required]">
+                            <OPTION VALUE="">เลือกระบบ</OPTION>
+			<?
+												include "../function/connect.php";
+													mysql_query("set NAMES tis620");
+												$sql = "select * from system";
+												$result = mysql_db_query($dbname, $sql);
+												while ($rs = mysql_fetch_array($result)) {
+												$system_id = $rs[system_id];
+												 $system_name = $rs[system_name];
+												echo "<OPTION VALUE='$system_id'>$system_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        
+						
+						</TD>
+                </TR>   
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>แหล่งที่มา</TD>
+                    <TD>
+                        <SELECT NAME="source_code_id" class="validate[required]">
+                            <OPTION VALUE="">เลือกแหล่งที่มา</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from source_code";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $source_code_id = $rs[source_code_id];
+    $source_code_name = $rs[source_code_name];
+    echo "<OPTION VALUE='$source_code_id'>$source_code_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        *</TD>
+                </TR>
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>รายละเอียดของปัญหาและการแก้ไขเบื้องต้น</TD>
+                    <TD><TEXTAREA NAME="detail_prob" COLS="40" ROWS="4" class="validate[required]"></TEXTAREA> * </TD>
+                </TR>
+
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD WIDTH="300">จำนวนครั้ง</TD>
+                    <TD><INPUT TYPE="text" NAME="numlevel" SIZE="10" class="validate[required,custom[onlyNumber]">* </TD>
+                </TR>
+
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>จุดที่เกิดความเสี่ยง</TD>
+                    <TD>
+                        <SELECT NAME="wardedit_id" class="validate[required]">
+                            <OPTION VALUE="">เลือกจุดที่่พบ</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from code_complaint c";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $wardedit_name = $rs[ward];
+    $wardedit_id = $rs[ward_id];
+    echo "<OPTION VALUE='$wardedit_id'>$wardedit_name</OPTION>";
+}
+?>
+                       <!-- 
+						</SELECT>
+                        </TD>
+                </TR>
+                
+                                <TR bgcolor="<?= $bg ?>">
+                    <TD>ผู้ที่ต้องการให้แก้ไขปัญหา</TD>
+                    <TD>
+                        <SELECT NAME="person_edit">
+                            <OPTION VALUE="0">ผู้ที่ต้องการให้แก้ไขปัญหา</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from pd_depart c order by namedepart
+                    
+                    ";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $person_name = $rs[namedepart];
+    $person_edit = $rs[id];
+
+    echo "<OPTION VALUE='$person_edit'>$person_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        </TD>
+                </TR>
+                
+                
+                <td>วันที่แก้ไข</td><td><script>DateInput('edit_date', true, 'YYYY-MM-DD')</script></td>
+                <TR bgcolor="<?= $bg ?>">              
+                    <TD>วิธีแก้ปัญหา</TD>
+                    <TD><TEXTAREA NAME="method" COLS="40" ROWS="4"></TEXTAREA>  </TD>
+                </TR>
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ทบทวน</TD>
+                    <TD>
+                        <SELECT NAME="review_id">
+                            <OPTION VALUE="0">เลือกการทบทวน</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from review";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $review_id = $rs[review_id];
+    $review_name = $rs[review_name];
+    echo "<OPTION VALUE='$review_id'>$review_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        </TD>
+                </TR>
+                <td>วันที่ทบทวน</td><td><script>DateInput('reborn_date', true, 'YYYY-MM-DD')</script></td>
+                <TR bgcolor="<?= $bg ?>">              
+                    <TD>ผลการทบทวน</TD>
+                    <TD><TEXTAREA NAME="detail_review" COLS="40" ROWS="4"></TEXTAREA>  </TD>
+                </TR>
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ลักษณะการเกิด</TD>
+                    <TD>
+                        <SELECT NAME="reborn_id">
+                            <OPTION VALUE="0">เลือกลักษณะการเกิด</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from reborn";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $reborn_id = $rs[reborn_id];
+    $reborn_name = $rs[reborn_name];
+    echo "<OPTION VALUE='$reborn_id'>$reborn_name</OPTION>";
+}
+?>
+                        </SELECT>
+                        </TD>
+                </TR>
+
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>ลักษณะการติดตาม</TD>
+                    <TD>
+                        <SELECT NAME="follow_id">
+                            <OPTION VALUE="0">เลือกการติดตาม</OPTION>
+<?
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "select * from tracking_code_fix";
+$result = mysql_db_query($dbname, $sql);
+while ($rs = mysql_fetch_array($result)) {
+    $follow_id = $rs[follow_id];
+    $follow_name = $rs[follow_name];
+    echo "<OPTION VALUE='$follow_id'>$follow_name</OPTION>";
+}
+?> 
+                        </SELECT>
+                        </TD>
+                </TR>
+
+-->
+                <TR bgcolor="<?= $bg ?>">
+                    <TD>&nbsp;</TD>
+                    <TD><INPUT TYPE="submit" NAME="submit" VALUE="Submit">
+                        <INPUT TYPE="reset" NAME="Submit2" VALUE="Reset"></TD>
+                <input type="hidden" value="<?= $iddepartweb ?>" name="person_id" />
+                <input type="hidden" value="<?= $codedepart ?>" name="ward_reg" /> <!--  อันนี้ น่าจะมาจากการ login รหัสแผนก-->
+                <input type="hidden" value="<?= $severity_date ?>" name="severity_date" />
+                <input type="hidden" value="<?= $pro_risk_id ?>" name="pro_risk_id" />
+                <input type="hidden" value="<?= $prorisk_detail_id ?>" name="prorisk_detail_id" />
+                <input type="hidden" value="<?= $prorisk_sub_detail_id ?>" name="prorisk_sub_detail_id" />
+                <input type="hidden" value="<?= $clinic_id ?>" name="clinic_id" />
+                <input type="hidden" value="<?= $severity ?>" name="severity" />
+                </TR>
+            </TABLE>
+        </FORM>
+</center>
+    </BODY>
+</HTML>

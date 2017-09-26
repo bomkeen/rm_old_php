@@ -1,0 +1,245 @@
+
+<!-- saved from url=(0035)http://localhost/crm/customer/index -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CRM Back Office</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./example_files/style.css">
+    </head>
+    <body>
+        <div class="top_page">CRM Back Office</div>
+        
+        <!-- main menu -->
+                
+<div class="main_menu">
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tbody><tr valign="top">
+            <td>
+                <a href="http://localhost/crm/home/index">
+                    <div><img src="./example_files/home.png"></div>
+                    <div>หน้าหลัก</div>
+                </a>
+                <a href="./example_files/example.htm">
+                    <div><img src="./example_files/customer.png"></div>
+                    <div>ลูกค้า</div>
+                </a>
+                
+                <!-- menu for admin only -->
+                                <a href="http://localhost/crm/report/index">
+                    <div><img src="./example_files/report.png"></div>
+                    <div>รายงาน</div>
+                </a>
+                <a href="http://localhost/crm/graph/index">
+                    <div><img src="./example_files/graph.png"></div>
+                    <div>กราฟ</div>
+                </a>
+                <a href="http://localhost/crm/config_system/index">
+                    <div><img src="./example_files/config.png"></div>
+                    <div>ตั้งค่าระบบ</div>
+                </a>
+                            </td>
+            <td align="right">
+                <!-- user box -->
+                                                <table class="user_box">
+                    <tbody><tr valign="top">
+                        <td width="85px">
+                            <img class="img" src="./example_files/default_user.png">
+                        </td>
+                        <td style="padding-top: 10px;">
+                            <div>Admin System</div>
+                            <div>เข้าระบบล่าสุด: 5 กันยายน 2012 19:14</div>
+                            <div style="padding: 0px">
+                            		<a href="http://localhost/crm/web/logout" onclick="return confirm(&#39;ยืนยันการออกจากระบบ&#39;)" style="padding: 5px;"><img border="0" src="./example_files/exit.png"></a>
+                            		<a href="http://localhost/crm/web/change_profile" style="padding-left: 5px; padding-top: 0px; color: white; ">แก้ไขข้อมูลส่วนตัว</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                            </td>
+        </tr>
+    </tbody></table>
+</div>                
+        <!-- message -->
+                
+        <!-- content -->
+        <div class="content">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                                    <tbody><tr valign="top">
+                        <td width="200px" class="menu_left">
+                            <div class="menu_left_box">
+    <div class="menu_left_box_title">menu</div>
+    <div class="menu_left_box_body">
+                <div><a href="./example_files/example.htm">ข้อมูลลูกค้า</a></div>
+        <div><a href="http://localhost/crm/customer/visit_index">การติดต่อนัดหมาย</a></div>
+        <div><a href="http://localhost/crm/customer/customer_comment_index">บันทึกข้อเสนอแนะ</a></div>
+        <div><a href="http://localhost/crm/customer/du_index">กำหนดรอบการเยี่ยมลูกค้า</a></div>
+        <div><a href="http://localhost/crm/customer/talk_index">การสนทนา</a></div>
+        <div><a href="http://localhost/crm/customer/happy_index">อวยพร</a></div>
+        <div><a href="http://localhost/crm/customer/feed_index">แจ้งข้อมูลข่าวสาร</a></div>
+                
+        
+                
+        
+            </div>
+</div>
+                        </td>
+                        <td>
+                            <div class="box">
+    <div class="box_toolbar">
+        <a href="http://localhost/crm/customer/customer_form">New</a>
+    </div>
+
+    <div class="box_title">ข้อมูลลูกค้า</div>
+    <div class="box_body">
+        <table class="grid">
+            <thead>
+                <tr>
+                    <td width="30px">id</td>
+                    <td width="300px">ชื่อลูกค้า</td>
+                    <td width="200px">ประเภท</td>
+                    <td width="100px">เบอร์โทร</td>
+                    <td>action</td>
+                </tr>
+            </thead>
+            <tbody>
+                                <tr>
+                    <td align="right">1</td>
+                    <td>คุณจาระวี</td>
+                    <td align="center">เอกชน</td>
+                    <td align="center">0868776053</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/1">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/1">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/1" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">2</td>
+                    <td>หกดหด</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">หกดห</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/2">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/2">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/2" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">3</td>
+                    <td>หกดหดหกดหกด</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">หกด</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/3">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/3">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/3" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">4</td>
+                    <td>asdfasdf</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">asdfasdf</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/4">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/4">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/4" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">5</td>
+                    <td>sadfadf</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">asdfsdfsdf</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/5">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/5">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/5" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">6</td>
+                    <td>test</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">sdfs</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/6">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/6">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/6" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                                <tr>
+                    <td align="right">7</td>
+                    <td>xxx</td>
+                    <td align="center">หน่วยงานราชการ</td>
+                    <td align="center">xx</td>
+                    <td align="center">
+                        <div class="grid_row_action">
+                            <a href="http://localhost/crm/customer/customer_view/7">
+                                <img src="./example_files/data.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_form/7">
+                                <img src="./example_files/edit.png">
+                            </a>
+                            <a href="http://localhost/crm/customer/customer_delete/7" onclick="return confirm(&#39;ยืนยันการลบรายการ&#39;)">
+                                <img src="./example_files/delete.png">
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                            </tbody>
+        </table>
+    </div>
+</div>                        </td>
+                    </tr>
+                            </tbody></table>
+        </div>
+    
+</body></html>

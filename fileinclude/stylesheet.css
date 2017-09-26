@@ -1,0 +1,46 @@
+.HeadBody 
+{ FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000099; FONT-FAMILY: Verdana , Tahoma }
+.HeadBodySub 
+{ FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000099; FONT-FAMILY: Verdana , Tahoma }
+.DetailLogin 
+{ FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: _Tahoma , Verdana }
+.DetailLogin2 
+{ FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: _Tahoma , Verdana }
+.DetailBody 
+{ FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: _Tahoma , Verdana }
+.Gradient 
+{ PADDING-RIGHT: 2px;  PADDING-LEFT: 2px; FONT-WEIGHT: bold; FILTER: progid:DXImageTransform.Microsoft.Gradient( GradientType=1, StartColorStr=#FFFFFF, EndColorStr=#E0E0E0 ); PADDING-BOTTOM: 2px; WIDTH: 100%; COLOR: #000099; PADDING-TOP: 2px; BACKGROUND-COLOR: #ecf3fb }
+.Gradient2 
+{ PADDING-RIGHT: 2px;  PADDING-LEFT: 2px; FONT-WEIGHT: bold; FILTER: progid:DXImageTransform.Microsoft.Gradient( GradientType=1, StartColorStr=#E0E0E0, EndColorStr=#FFFFFF ); PADDING-BOTTOM: 2px; WIDTH: 100%; COLOR: #000099; PADDING-TOP: 2px; BACKGROUND-COLOR: #ecf3fb }
+.Gradientmenu
+{ PADDING-RIGHT: 2px;  PADDING-LEFT: 2px; FONT-WEIGHT: bold; FILTER: progid:DXImageTransform.Microsoft.Gradient( GradientType=1, StartColorStr=#333366, EndColorStr=#FFFFFF ); PADDING-BOTTOM: 2px; WIDTH: 100%; COLOR: #000099; PADDING-TOP: 2px; BACKGROUND-COLOR: #ecf3fb }
+.HeadLogin
+{ FONT-WEIGHT: bold; FONT-SIZE: 11pt; COLOR: #000099; FONT-FAMILY: Verdana , Tahoma }
+.FalseLogin 
+{ FONT-SIZE: 9pt; COLOR: #ff0000; FONT-FAMILY: _Tahoma , Verdana }
+.FontMenu 
+{ FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: _Tahoma , Verdana }
+/*Leftmenubartop*/
+.LeftMenuBartop { FONT-SIZE: 8pt; COLOR: #000066; FONT-WEIGHT: bold; FONT-FAMILY: MS Sans Serif, CordiaUPC }
+.LeftMenuBar A { COLOR: #000000; TEXT-DECORATION: none }
+.LeftMenuBar A:hover { COLOR: #ff9900; TEXT-DECORATION: underline }
+.LeftMenuBar A:active { COLOR: #ff0000; TEXT-DECORATION: none }
+
+/*Leftmenubar*/
+.LeftMenuBar { FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: MS Sans Serif, CordiaUPC }
+.LeftMenuBar A { COLOR: #000000; TEXT-DECORATION: none }
+.LeftMenuBar A:hover { COLOR: #ff9900; TEXT-DECORATION: underline }
+.LeftMenuBar A:active { COLOR: #ff0000; TEXT-DECORATION: none }
+
+/*TopmenubarRight*/
+.TopMenuBarRight { FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: _Tahoma , Verdana }
+.TopMenuBarRight A { COLOR: #000099; TEXT-DECORATION: none }
+.TopMenuBarRight A:hover { COLOR: #ff9900; TEXT-DECORATION: underline }
+.TopMenuBarRight A:active { COLOR: #ff0000; TEXT-DECORATION: none }
+
+.BodyLogin
+{ FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #000099; FONT-FAMILY: Verdana , Tahoma }
+.unnamed1 {
+	font-family: "MS Sans Serif", Tahoma, sans-serif;
+	font-size: 16px;
+}

@@ -1,0 +1,30 @@
+<?
+session_start();
+$startdate = $_POST[startdate];
+$enddate = $_POST[enddate];
+
+//include "risk_db_job_risk_pro.php";
+include "../function/connect.php";
+mysql_query("set NAMES tis620");
+$sql = "SELECT pr.pro_risk_name,count(pr.pro_risk_id) as count_pro_risk,pr.pro_risk_id
+FROM
+register_risk r
+left outer join pro_risk pr on pr.pro_risk_id=r.pro_risk_id
+left outer join tb_member p on p.id=r.person_id
+where r.`date` between '$startdate'and'$enddate' and pr.pro_risk_id <> 0 group by pr.pro_risk_id
+";
+$result = mysql_db_query($dbname, $sql);
+$number = mysql_num_rows($result);
+$no = 1;
+
+?>
+<HTML>
+    <HEAD><TITLE>:: โปรแกรมความเสี่ยง ::</TITLE>
+    </HEAD>
+    <BODY>
+
+
+       
+
+    </BODY>
+</HTML>

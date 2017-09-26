@@ -1,0 +1,12 @@
+<?
+if(!$number )
+{	
+?>
+	<SCRIPT language="JavaScript">
+	alert("ไม่มีข้อมูล");
+	//location.href='login.php';
+	</SCRIPT>
+	<META HTTP-EQUIV="REFRESH" CONTENT="0;url=../body.php">
+<?	
+}
+?>

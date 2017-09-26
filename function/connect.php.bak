@@ -1,0 +1,10 @@
+<?php
+$hostname = "127.0.0.1"; //ชื่อโฮสต
+$user = "sa"; //ชื่อผู้ใช้
+$password = "sa"; //รหัสผ่าน
+$dbname = "risk_new"; //ชื่อฐานข้อมูล
+mysql_connect($hostname, $user, $password) or die("cccติดต่อฐานข้อมูลไม่ได้");
+mysql_select_db($dbname) or die("xxxเลือกฐานข้อมูลไม่ได้");
+mysql_query("SET NAMES 'tis620' ");
+  $c = mysql_connect($hostname, $user, $password) or die("cccติดต่อฐานข้อมูลไม่ได้");
+?>

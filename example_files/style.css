@@ -1,0 +1,280 @@
+.top_page {
+    background-image: url("images/top_page.png");
+    background-repeat: repeat-x;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 9px;
+}
+body {
+    margin: 0px;
+    background-color: #005f92;
+}
+.required {
+	color: red;
+}
+* {
+    font-size: 13px;
+    font-family: tahoma;
+}
+.box {
+    border: #043254 3px solid;
+    background-color: white;
+    padding: 10px;
+}
+.box_title {
+    color: #595959;
+    font-weight: bold;
+    padding-bottom: 4px;
+    border-bottom: #595959 1px solid;
+    margin-bottom: 5px;
+}
+.box_body {
+    
+}
+.box_body div {
+    margin-bottom: 5px;
+}
+.box_toolbar {
+    text-align: right;
+}
+.box_toolbar a {
+    color: black;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.box_toolbar a:hover {
+    color: blue;
+}
+.content {
+    padding: 10px;
+}
+.button {
+    background-image: url("images/button_normal.png");
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 0px;
+    cursor: pointer;
+}
+.textbox {
+    border: #dbdfe6 1px solid;
+}
+.warnning {
+    background-color: #fffbdd;
+    padding: 8px;
+    color: red;
+    font-size: 15px;
+    font-weight: bold;
+}
+.main_menu {
+    background-image: url("images/main_menu_title.png");
+    background-repeat: repeat-x;
+    padding: 5px;
+}
+.main_menu a {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+.main_menu a div {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    color: white;
+}
+.user_box .img {
+    border: #969a9d 2px solid;
+}
+.menu_left {
+    padding-right: 10px;
+}
+.menu_left_box {
+    background-color: #f7f7f7;
+    border: #043254 3px solid;
+}
+.menu_left_box_title {
+    color: #5d5d5d;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border-bottom: #b4b4b5 3px solid;
+}
+.menu_left_box_body {
+    background-color: #5d5d5d;
+}
+.menu_left_box_body div {
+    border-bottom: #686868 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+.menu_left_box_body div a {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+.toolbar {
+    background-color: #5c8aab;
+    padding: 7px;
+    text-align: right;
+    border-bottom: #043f66 1px solid;
+}
+.grid thead tr td {
+    background-image: url("images/grid_header_bg.png");
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+.grid tbody tr td {
+    background-color: #efefef;
+    padding: 5px;
+    border-bottom: #d4d4d4 1px solid;
+}
+.grid_row_action {
+    background-color: #bab8b9;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.grid_row_action a {
+    text-decoration: none;
+    color: black;
+}
+.grid_row_action a img {
+    border: 0px;
+    width: 20px;
+}
+.data_view {
+    background-color: #f6f7f9;
+    border: #b4b4b5 1px solid;
+    padding: 4px;
+}
+.label {
+    text-align: right;
+    padding-right: 3px;
+}
+
+ul li {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+/* month */
+.month_list {
+    
+}
+.month_list div {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 15px;
+    padding-left: 7px;
+}
+.month_list div a {
+    color: black;
+    text-decoration: none;
+}
+.current_month {
+    background-color: #1d6891;
+}
+.current_month a span {
+    color: white;
+}
+
+/* calendar */
+.calendar {
+    
+}
+.calendar .controls td {
+    border-bottom: #686868 2px solid;
+    padding: 10px;
+    background-color: #a4a4a4;
+}
+.calendar td {
+    width: 100px;
+}
+.calendar .controls .prev {
+    text-align: left;
+}
+.calendar .controls .prev a {
+    color: white;
+}
+.calendar .controls .next {
+    text-align: right;
+}
+.calendar .controls .next a {
+    color: white;
+}
+.calendar .controls td.title {
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    text-align: left;
+}
+.calendar tbody tr th {
+    padding: 10px;
+    background-color: #d8d8d8;
+    border-bottom: #b3b3b3 2px solid;
+}
+.calendar tbody tr td {
+    padding: 15px;
+    border-right: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+    text-align: right;
+    padding-right: 2px;
+}
+.calendar .output li {
+    list-style: none;
+    color: red;
+    font-style: italic;
+    text-align: left;
+    font-size: 10px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+.calendar .output li a {
+    color: black;
+    text-decoration: none;
+    font-size: 10px;
+}
+.calendar .output li a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+.calendar .output li img {
+    width: 12px;
+    margin-right: 2px;
+}
+.calendar_box {
+    border-left: #1d6891 5px solid;
+    padding-left: 5px;
+}
+
+/* form */
+form {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* graph */
+.bar {
+	background-color: #ffffcc;
+	padding: 4px;
+	border: #808080 1px solid;	
+}

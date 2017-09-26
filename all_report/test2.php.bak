@@ -1,0 +1,38 @@
+<?session_start();?>
+<?
+//include("../function/FusionCharts.php");
+
+?>
+
+<BR>
+
+
+<CENTER>
+<FONT SIZE="3" COLOR="#9900CC">จำนวนการเขียนรายงานความเสี่ยงแยกตามแผนกในปีปัจจุบัน</FONT>
+<!-- php chart  -->
+<?php
+$strXML2 = "<chart caption='' xAxisName='' yAxisName='' numberPrefix='' showValues='1'>";
+$row2=0;
+//include('../function/connect.php');
+	$sql2 = "SELECT COUNT(r.id),c.ward FROM register_risk AS r
+LEFT JOIN code_complaint AS c ON c.ward_id=r.ward_id WHERE year(r.date)=YEAR(NOW()) GROUP BY r.ward_id";
+$suma2 = array();
+//echo $sql;
+	$result2 = mysql_query($sql2) or die(mysql_error());
+	
+	if ($result2) {
+			while($rs2 = mysql_fetch_array($result2))
+						{
+
+							$strXML2 .= "<set label='" . $rs2[1] . "' value='" . $rs2[0] . "' />";     /////ต่อสตริง ทำค่า value แบบใน xml
+						}
+					}
+?>
+<!-- หมด วนloop ลง XML เพื่อทำกราฟ -->
+
+<?
+$strXML2 .= "</chart>"; //// นำ XML มาต่อสตริง ปิด chart  ต้องเว้นวรรค หนึ่งเคาะ แล้วถึงจะ .=
+	echo renderChart("../Charts/Line.swf", "", $strXML2, "รายงานจำนวนประชากร", 300, 150, false, false);
+	?>
+
+</CENTER>
