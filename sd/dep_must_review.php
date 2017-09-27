@@ -1,17 +1,15 @@
-<?
+<?php
 ob_start();
 session_start();
-
-
 ?>
-<?include "../level/dep.php";?>
-<?
-$startdate=$_POST[startdate];
-$enddate=$_POST[enddate];
+<?php include "../level/dep.php"; ?>
+<?php
+@$startdate = $_POST['startdate'];
+@$enddate = $_POST['enddate'];
+$codedepart = $_SESSION['codedepart'];
 
 include "../function/connect.php";
-mysql_query("set NAMES tis620");
-$sql="SELECT r.id,r.date as risk_date,pr.pro_risk_name,pd.prorisk_detail_name,prorisk_sub_detail_name,c.clinic_name,r.severity
+$sql = "SELECT r.id,r.date as risk_date,pr.pro_risk_name,pd.prorisk_detail_name,prorisk_sub_detail_name,c.clinic_name,r.severity
 ,r.detail_prob,r.numlevel,cm.ward as ward,cr.ward as wardedit_name,r.method,f.follow_name,p.namedepart as person_name,rw.review_name,sc.source_code_name
 ,sy.system_name ,rb.reborn_name
 FROM
@@ -29,85 +27,87 @@ left outer join system sy on sy.system_id = r.system_id
 left outer join reborn rb on rb.reborn_id = r.reborn_id
 left outer join source_code sc on sc.source_code_id = r.source_code_id
 where  r.wardedit_id = '$codedepart' and r.wardedit_id is not null and r.follow_id !='1' ";
-$result=mysql_db_query($dbname,$sql);
-$number=mysql_num_rows($result);
-$no=1;
+$result = mysql_db_query($dbname, $sql);
+$number = mysql_num_rows($result);
+$no = 1;
 ?>
-<?include "../level/check_data.php";?>
+<?php include "../level/check_data.php"; ?>
 
 
 <HTML>
-<HEAD><TITLE>:: �������������§ ::</TITLE>
-</HEAD><BR><BR>
-<?include('../function/user_detail.php');?>
-<FONT SIZE="3" COLOR="#009900">����к��� <?echo $yourname?> Ἱ� <?echo $yourdep?> �ѧ�Ѵ��� <?echo $yourdep_sec?></FONT>
+    <HEAD><TITLE>:: โปรแกรมความเสี่ยง ::</TITLE>
+        <link href="../css/bootstrap.css" rel="stylesheet">
+        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    </HEAD>
+    <BODY>
+        <div class="page-header">
+<?php include('../function/user_detail.php'); ?>
+        <FONT SIZE="3" COLOR="#009900">เข้าระบบโดย <?php echo $yourname ?> แผนก <?php echo $yourdep ?> สังกัดทีม <?php echo $yourdep_sec ?></FONT>
 
-<center><a href="./dep_must_review_print.php?dep=<?echo $codedepart?>&enddate=<?echo $enddate?>&startdate=<?echo $startdate?>" target='blank'><img src="../img/excel.jpg" width="30" height="30" border="0" alt="Print"><font size="6" color="#99cc00">Excel Export</font></a></center>
+    <center><a href="./dep_must_review_print.php?dep=<?php echo $codedepart ?>&enddate=<?php echo $enddate ?>&startdate=<?php echo $startdate ?>" target='blank'><img src="../img/excel.jpg" width="30" height="30" border="0" alt="Print"><font size="6" color="#99cc00">Excel Export</font></a></center>
 
-
-
-
-
-	<P><strong>�ʴ���¡�ä�������§ ���˹��§ҹ�١��§ҹ���������� </strong></P>
- <table align='center' border='1' width='1080' cellpadding='0' cellspacing='0'>
-		<TR BGCOLOR=#99FFCC> 
-                  <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�ӴѺ</B></CENTER></font></td>
-                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�ѹ�����</B></CENTER></font></td>
-                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�������������§ </B></CENTER></font></td>
-<td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>��������´�����</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>��������§��ҹ</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�дѺ�����ع�ç</B></CENTER></font></td>
-<td width=200 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>��������´�ͧ�ѭ��</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�ӹǹ����</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�к�</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>���ǹ</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>����Դ</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�����</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>˹��§ҹ��§ҹ</B></CENTER></font></td>
-<td BGCOLOR=#FF3399 width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>Ἱ�����Դ��������§</B></CENTER></font></td>
-<td width=200 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�Ը���ѭ��</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>�ѡɳС�õԴ���</B></CENTER></font></td>
-<td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>���ͼ����§ҹ</B></CENTER></font></td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>[��䢤�������§]</B></CENTER></font></td>
+</div>
 
 
 
+    <P><strong>แสดงรายการความเสี่ยง ที่หน่วยงานถูกรายงานเพื่อให้แก้ไข </strong></P>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+            <table class="table table-hover" align='center' border='1' width='1080' cellpadding='0' cellspacing='0'>
+                <TR BGCOLOR=#99FFCC> 
+                    <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ลำดับ</B></CENTER></font></td>
+                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>วันที่แจ้ง</B></CENTER></font></td>
+                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>โปรแกรมความเสี่ยง </B></CENTER></font></td>
+                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>รายละเอียดโปรแกรม</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ความเสี่ยงด้าน</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ระดับความรุนแรง</B></CENTER></font></td>
+                <td width=200 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>รายละเอียดของปัญหา</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>จำนวนครั้ง</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ระบบ</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ทบทวน</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>การเกิด</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ที่มา</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>หน่วยงานรายงาน</B></CENTER></font></td>
+                <td BGCOLOR=#FF3399 width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>แผนกที่เกิดความเสี่ยง</B></CENTER></font></td>
+                <td width=200 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>วิธีแก้ปัญหา</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ลักษณะการติดตาม</B></CENTER></font></td>
+                <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>ชื่อผู้รายงาน</B></CENTER></font></td>
+                <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><CENTER><B>[แก้ไขความเสี่ยง]</B></CENTER></font></td>
 
 
-		</TR> 
-<?
-	while($rs=mysql_fetch_array($result)) {
-                                    
-              if ($bg=="#CCFFFF")
-                { //color
-                    $bg="#FFFFCC";
-                }else{
-                    $bg="#CCFFFF";
-                } //color
-    //color
- //   
-//p.name as person_name
-                    
-		$id=$rs[id];
-$date=$rs[risk_date];
-$pro_risk_name=$rs[pro_risk_name];
-$prorisk_detail_name=$rs[prorisk_detail_name];
-$clinic_name=$rs[clinic_name]; 
-$severity=$rs[severity];      
-$detail_prob=$rs[detail_prob];
-$numlevel=$rs[numlevel];       
-$ward=$rs[ward];
-$wardedit_name=$rs[wardedit_name];
-$method=$rs[method];
-$follow_name=$rs[follow_name];
-$person_name=$rs[person_name];
-$review_name=$rs[review_name];
-$system_name=$rs[system_name];
-$reborn_name=$rs[reborn_name];
-$source_code_name=$rs[source_code_name];
 
 
-		echo "
+
+                </TR> 
+<?php
+$bg='';
+while ($rs = mysql_fetch_array($result)) {
+
+    if ($bg == "#CCFFFF") { //color
+        $bg = "#FFFFCC";
+    } else {
+        $bg = "#CCFFFF";
+    } //color
+    $id = $rs['id'];
+    $date = $rs['risk_date'];
+    $pro_risk_name = $rs['pro_risk_name'];
+    $prorisk_detail_name = $rs['prorisk_detail_name'];
+    $clinic_name = $rs['clinic_name'];
+    $severity = $rs['severity'];
+    $detail_prob = $rs['detail_prob'];
+    $numlevel = $rs['numlevel'];
+    $ward = $rs['ward'];
+    $wardedit_name = $rs['wardedit_name'];
+    $method = $rs['method'];
+    $follow_name = $rs['follow_name'];
+    $person_name = $rs['person_name'];
+    $review_name = $rs['review_name'];
+    $system_name = $rs['system_name'];
+    $reborn_name = $rs['reborn_name'];
+    $source_code_name = $rs['source_code_name'];
+
+
+    echo "
 			<tr bgcolor=$bg>
 <td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif>$id</td>
 <td width=100 align=center><font size=2 face=Tahoma, MS Sans Serif>$date</td>
@@ -126,16 +126,18 @@ $source_code_name=$rs[source_code_name];
 <td width=200 align=left><font size=2 face=Tahoma, MS Sans Serif>$method</td>
 <td width=100 align=left><font size=2 face=Tahoma, MS Sans Serif>$follow_name</td>
 <td width=100 align=left><font size=2 face=Tahoma, MS Sans Serif>$person_name</td>
-<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><A HREF=\"risk_edit.php?id=$id\">[��䢤�������§]</A></td>
+<td width=50 align=center><font size=2 face=Tahoma, MS Sans Serif><A HREF=\"risk_edit.php?id=$id\">[แก้ไขความเสี่ยง]</A></td>
 
 			</TR>
 		</TR>";
-		$no++;
-	}
-	echo "</TABLE>";	
-	mysql_close();
- 
-?>
+    $no++;
+}
+echo "</TABLE>";
 
+mysql_close();
+?>
+        </div></div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 </BODY>
 </HTML>

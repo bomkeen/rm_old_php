@@ -16,7 +16,7 @@
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='risk_add/risk_add.php' target="center"><span>รายงานความเสี่ยง</a></li>
-            <li class='active'><a href='risk_view_calendar.php' target="center"><span>Calendar Viwe</span></a></li>
+            <!--<li class='active'><a href='risk_view_calendar.php' target="center"><span>Calendar Viwe</span></a></li>-->
             <li class='has-sub'><a href='#' target="center"><span>Chart report</span></a>
                 <ul>
                     <li class='active'><a href='./all_report/all_dep.php' target="center"><span>แยกตามแผนกที่เกิด</span></a> </li>

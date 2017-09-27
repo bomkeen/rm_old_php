@@ -61,7 +61,7 @@ $bg2 ="#FFE4C4";
 <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     </HEAD>
     <BODY>
-        risk_add_level
+        <!--risk_add_level-->
 	<div class="page-header">
         <h3>รายงานความเสี่ยง</h3>
        <a href='./risk_add.php?pro_risk_id=<?php echo $pro_risk_id ; ?>'>โปรแกรมหลัก</a>

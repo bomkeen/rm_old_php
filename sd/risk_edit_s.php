@@ -1,18 +1,17 @@
-<?
+<?php
 session_start();
-$edit_date=$_POST[edit_date];//วันที่แก้ไข
-$review_id=$_POST[review_id];//ทบทวน
-$reborn_date=$_POST[reborn_date];//วันที่ทบทวน
-$detail_review=$_POST[detail_review]; //ผลการทบทวน
-$reborn_id=$_POST[reborn_id];//ลักษณะการเกิด
-$follow_id=$_POST[follow_id]; //ลักษณะการติดตาม
-$method=$_POST[method]; //วิธีแก้ปัญหา
-$person_edit=$_POST[person_edit];
-$id=$_POST[id];
+$edit_date=$_POST['edit_date'];//เธงเธฑเธเธ—เธตเนเนเธเนเนเธ
+$review_id=$_POST['review_id'];//เธ—เธเธ—เธงเธ
+$reborn_date=$_POST['reborn_date'];//เธงเธฑเธเธ—เธตเนเธ—เธเธ—เธงเธ
+$detail_review=$_POST['detail_review']; //เธเธฅเธเธฒเธฃเธ—เธเธ—เธงเธ
+$reborn_id=$_POST['reborn_id'];//เธฅเธฑเธเธฉเธ“เธฐเธเธฒเธฃเน€เธเธดเธ”
+$follow_id=$_POST['follow_id']; //เธฅเธฑเธเธฉเธ“เธฐเธเธฒเธฃเธ•เธดเธ”เธ•เธฒเธก
+$method=$_POST['method']; //เธงเธดเธเธตเนเธเนเธเธฑเธเธซเธฒ
+$person_edit=$_POST['person_edit'];
+$id=$_POST['id'];
 
 
 include "../function/connect.php";
-mysql_query("set NAMES tis620");
 
 
 
@@ -28,15 +27,22 @@ person_edit='$person_edit',
 detail_review='$detail_review'    
 
 where id ='$id'";
-mysql_query("set NAMES tis620");
 $result=mysql_db_query($dbname,$sql);
 
-if ($result) {
-	echo "<H3>แก้ไข ความเสี่ยงเรียบร้อยแล้วแล้ว</H3>";
-	
-} else {
-	echo "<H3>ERROR : ไม่สามารถแก้ไขความเสี่ยงได้</H3>";
-}
+
 
 mysql_close();
+
 ?>
+<?php if(!$result){ ?>
+   <SCRIPT language="JavaScript">
+    alert("ERROR");
+    location.href = './risk_edit.php?id=<?php echo $id ;?>';
+</SCRIPT> 
+<?php } else { ?>
+
+<SCRIPT language="JavaScript">
+    alert("เน€เธฃเธตเธขเธเธฃเนเธญเธขเธเธฃเธฑเธเธเธก");
+    location.href = './risk_edit.php?id=<?php echo $id ;?>';
+</SCRIPT>
+<?php } ?>

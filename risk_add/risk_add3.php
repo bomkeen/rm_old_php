@@ -1,37 +1,37 @@
-<?
+<?php
 session_start();
-
-$equipment_type=$_POST[$id_equipment];
-$id_person=$_POST[id_name];
-
-//$d1=$_POST[d1];
-//$m1=$_POST[m1];
-//$y1=$_POST[y1];
-//$yy1=$y1;
-//$startdate=$yy1."-".$m1."-".$d1;
-echo $startdate;
-$date=$startdate;
-$prorisk_detail_id=$_POST[prorisk_detail_id];
-$pro_risk_id=$_POST[pro_risk_id];
-$prorisk_sub_detail_id=$_POST[prorisk_sub_detail_id];
-$clinic_id=$_POST[clinic_id];
-$severity=$_POST[severity];
-$detail_prob=$_POST[detail_prob];
-$numlevel=$_POST[numlevel];
-$ward_id=$_POST[ward_reg];
-$wardedit_id=$_POST[wardedit_id];
-$method=$_POST[method];
-$follow_id=$_POST[follow_id];
-$person_id=$_POST[person_id];
-$system_id=$_POST[system_id];
-$source_code_id=$_POST[source_code_id];
-$review_id=$_POST[review_id];
-$detail_review=$_POST[detail_review];
-$reborn_id=$_POST[reborn_id];
-$edit_date=$_POST[edit_date];
-$reborn_date=$_POST[reborn_date];
-$severity_date=$_POST[severity_date];
-$person_edit=$_POST[person_edit];
+//$equipment_type = $_POST[$id_equipment];
+//$id_person = $_POST['id_name'];
+////$d1=$_POST[d1];
+////$m1=$_POST[m1];
+////$y1=$_POST[y1];
+////$yy1=$y1;
+////$startdate=$yy1."-".$m1."-".$d1;
+//echo $startdate;
+$dateinsert = date('Y-m-d');
+@$riskdate=$_POST['riskdate'];
+@$prorisk_detail_id = $_POST['prorisk_detail_id'];
+@$pro_risk_id = $_POST['pro_risk_id'];
+@$prorisk_sub_detail_id = $_POST['prorisk_sub_detail_id'];
+@$clinic_id = $_POST['clinic_id'];
+@$severity = $_POST['severity'];
+@$detail_prob = $_POST['detail_prob'];
+@$numlevel = $_POST['numlevel'];
+@$ward_id = $_POST['ward_reg'];
+@$wardedit_id = $_POST['wardedit_id'];
+@$method = $_POST['method'];
+@$follow_id = $_POST['follow_id'];
+@$person_id = $_POST['person_id'];
+@$system_id = $_POST['system_id'];
+@$source_code_id = $_POST['source_code_id'];
+@$review_id = $_POST['review_id'];
+@$detail_review = $_POST['detail_review'];
+@$reborn_id = $_POST['reborn_id'];
+@$edit_date = $_POST['edit_date'];
+@$reborn_date = $_POST['reborn_date'];
+@$severity_date = $_POST['severity_date'];
+@$person_edit = $_POST['person_edit'];
+@$iddepartweb=$_SESSION['iddepartweb'];
 //echo "$date";
 //echo "$name";
 //echo "$pr3o_risk_id";
@@ -43,7 +43,7 @@ $person_edit=$_POST[person_edit];
 //echo "$wardedit_id";
 //echo "$method";
 //echo "$follow_id";
-echo "$person_id";
+//echo "$person_id";
 //echo "$source_id";
 //echo "$part_id";
 //echo "$type_id";
@@ -51,42 +51,48 @@ echo "$person_id";
 
 /*
 
-$document=$_POST[document];
-$document_distribution=$_POST[document_distribution];
-$id_pasadu_state=$_POST[id_pasadu_state];
+  $document=$_POST[document];
+  $document_distribution=$_POST[document_distribution];
+  $id_pasadu_state=$_POST[id_pasadu_state];
 
-echo $fileupload=$_FILES['fileupload']['tmp_name'];
-echo $fileupload_name=$_FILES['fileupload']['name'];
-echo $fileupload_size=$_FILES['fileupload']['size'];
-echo $fileupload_type=$_FILES['fileupload']['type'];
+  echo $fileupload=$_FILES['fileupload']['tmp_name'];
+  echo $fileupload_name=$_FILES['fileupload']['name'];
+  echo $fileupload_size=$_FILES['fileupload']['size'];
+  echo $fileupload_type=$_FILES['fileupload']['type'];
 
-if ($name=="") {
-	echo "<H3>ERROR : °√ÿ≥“°√Õ° ™◊ËÕ ‘π§È“</H3>";
-	exit();
-} else if ($ref_id_type=="0") {
-	echo "<H3>ERROR : °√ÿ≥“‡≈◊Õ° ª√–‡¿∑ ‘π§È“ </H3>";
-	exit();
-} else if ($detail=="") {
-	echo "<H3>ERROR : °√ÿ≥“°√Õ° √“¬≈–‡Õ’¬¥ </H3>";
-	exit();
-} else if ($id_person=="") {
-	echo "<H3>ERROR : °√ÿ≥“°√Õ° ™◊ËÕºŸÈ·®Èß </H3>";
-	exit();
-}
-*/
+  if ($name=="") {
+  echo "<H3>ERROR : ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å ‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</H3>";
+  exit();
+  } else if ($ref_id_type=="0") {
+  echo "<H3>ERROR : ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å ‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ </H3>";
+  exit();
+  } else if ($detail=="") {
+  echo "<H3>ERROR : ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î </H3>";
+  exit();
+  } else if ($id_person=="") {
+  echo "<H3>ERROR : ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å ‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏à‡πâ‡∏á </H3>";
+  exit();
+  }
+ */
 include "../function/connect.php";
-mysql_query("set NAMES tis620");
-$sql="INSERT INTO register_risk values('','$date','$pro_risk_id','$prorisk_detail_id','$prorisk_sub_detail_id',
-'$clinic_id','$severity','$detail_prob','$numlevel','$codedepart','$wardedit_id','$method','$follow_id','$iddepartweb'
-,'$system_id','$source_code_id','$review_id','$reborn_id','$detail_review','$edit_date','$reborn_date','$person_edit','$severity_date') ";
+$sql = "INSERT INTO register_risk values('','$riskdate','$dateinsert','$pro_risk_id','$prorisk_detail_id'"
+        . ",'$prorisk_sub_detail_id',
+'$clinic_id','$severity','$detail_prob','$numlevel','$ward_id','$wardedit_id',''"
+        . ",'','$person_id'
+,'','','','','',''"
+        . ",'','','') ";
 $result=mysql_db_query($dbname,$sql);
-
-
-//echo "";
-//echo "<H3>‡æ‘Ë¡ §«“¡‡ ’Ë¬ß√’¬∫√ÈÕ¬·≈È«</H3>";
 mysql_close();
 ?>
+<?php if(!$result){ ?>
+   <SCRIPT language="JavaScript">
+    alert("ERROR");
+    location.href = '../index.php';
+</SCRIPT> 
+<?php } else { ?>
+
 <SCRIPT language="JavaScript">
-	alert("‡√’¬∫√ÈÕ¬§√—∫º¡");
-	location.href='#';
+    alert("‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡∏Ñ‡∏£‡∏±‡∏ö‡∏ú‡∏°");
+    location.href = '#';
 </SCRIPT>
+<?php } ?>

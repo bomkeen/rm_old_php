@@ -1,12 +1,12 @@
-<?
+<?php
 if($_SESSION["level"]<2 )
 {	
 ?>
 	<SCRIPT language="JavaScript">
-	alert("ท่านไม่มีสิทธิใช้งาน Page นี้");
+	alert("เธ—เนเธเนเธกเนเธกเธตเธชเธดเธ—เธเธดเนเธเนเธเธฒเธ Page เธเธตเน");
 	//location.href='login.php';
 	</SCRIPT>
 	<META HTTP-EQUIV="REFRESH" CONTENT="0;url=../body.php">
-<?	
+<?php	
 }
 ?>
